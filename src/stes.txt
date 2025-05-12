@@ -1,0 +1,77 @@
+1- React --> js library -> 2013 --> Facebook 
+
+2- Why React:   1- Easy to create app 
+                2- SPA --> Virtual Dom --> detact change zone 
+                3- easy t learn
+                4- depgging tools 
+                5- dom eleement 
+3- npm vs npx :
+        npm --> overall the machine
+        npx --> overall the project 
+
+4- get started: 
+        1- install node >= 18
+        2- npx create-react-app PROJECT_NAME
+5- JSX --> Javascript XML --> create javascripn inside html code 
+
+6- components: React < 16.8
+        1- Class Component: 
+                --> this.state ={ ==> local variables
+
+                } 
+                --> setState 
+        
+        2- Life Cycle Methods: 
+                Constructor --> first 
+                Render --> 
+                componentDidMount --> 
+                componentDidUpdate
+                componentWillUnMount --> redirect url to url 
+
+        2- Function Component > 16.8 
+                React Hooks 
+                1- state -- setState 
+                        useState 
+                const [state, setState] = useState("Value") 
+
+                const [name, setName ] = useState("ahmed")
+
+                2- life cycle methods : 
+                        useEffect
+
+                // componentDidMount:   
+                        useEffect(() => {
+                           call api
+                        },[]) // if the array is empty == componentDidMount
+
+
+                // componentDidUpdate
+
+
+                // componentWillUnMount
+
+
+
+        props --> share date between components --> props
+
+____________________________________________________________
+
+Handle Form: 
+        1- create component --> form --> 
+                add the path for componen in App.js --> <Route 
+                add the new Route into Navbar 
+        2- add form from bootstrap 
+
+        3- use -> useState --> to handle the data in from 
+
+        4- add value into input in the form 
+
+        5- add onChange into the input in the form 
+
+        6- the onChange --> call setState (setNAme, setPostion)
+
+        7- set validation rules --> store the error message in state 
+        const [errors, setErrors] = useState({
+                nameErr: "",
+                posErr: ""
+        })  
