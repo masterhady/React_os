@@ -1,6 +1,23 @@
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { changeTheme } from "../Redux/Actions/ThemeAction"
 
 function Navbar(){
+
+    // to get/ read data from store --> useSelector 
+
+    const myLang = useSelector((state) => state.myLangRed.lang)
+
+    const myTheme = useSelector((state) => state.myThemeRed.theme)
+
+    // to change data in store --> useDispatch
+    const dispatch = useDispatch()
+    const changeMyTheme = () => {
+      // useDispatch --> action + store 
+      dispatch(changeTheme(myTheme == "light" ? "Dark" : "light"))
+    }
+
+
 
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,6 +45,12 @@ function Navbar(){
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/blogs">Blogs</Link>
+        </li>
+        <li className="nav-item">
+          <p className="nav-link">{myLang}</p>
+        </li>
+        <li className="nav-item">
+          <button onClick={() => changeMyTheme()} className="nav-link btn btn-warning">{myTheme}</button>
         </li>
         </ul>
     </div>

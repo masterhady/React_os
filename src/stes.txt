@@ -75,3 +75,12 @@ Handle Form:
                 nameErr: "",
                 posErr: ""
         })  
+
+
+------------------------------------------------------
+
+State Managment:
+        Redux: 
+                1- Action
+                2- Reducer 
+                3- Store 

@@ -3,12 +3,15 @@ import MyButton from "../../Components/MyButton";
 import MyTitle from "../../Components/MyTitle";
 import "./AppClassComponent.css";
 import { Alert, Button, Popover } from "react-bootstrap";
+import { connect } from "react-redux";
+import { changeLanguage } from "../../Redux/Actions/LangAction";
+import { changeTheme } from "../../Redux/Actions/ThemeAction";
 
 class AppClassComponent extends React.Component{
 
     // var hello = "ahemd";
-    constructor(){
-        console.log("I am Contructor")
+    constructor(props){
+        console.log(props)
         super()
         this.state = {
             name: "ahmed",
@@ -50,6 +53,12 @@ class AppClassComponent extends React.Component{
             console.log("I am Render")
             return(
                 <> 
+                    <button onClick={() => this.props.changeTheme(this.props.newTheme == "light" ? "Dark" : "light")}> Change Theme  </button> 
+
+                    <button onClick={() => this.props.changeLanguage(this.props.newLang == "AR" ? "EN" : "AR")}> Change Lang From Class </button> 
+                    <h1> My Lang is: {this.props.newLang} </h1>
+                    <h1> My Theme is: {this.props.newTheme} </h1>
+
                     <MyTitle head="Login Page"/>
                     <MyTitle head="Register PAge"/>
 
@@ -70,4 +79,17 @@ class AppClassComponent extends React.Component{
         }
 }
 
-export default AppClassComponent;
+// export default AppClassComponent;
+
+const mapStateToProps = (state) => {
+    return {
+        newLang : state.myLangRed.lang,
+        newTheme: state.myThemeRed.theme
+    }
+}
+
+export default connect(mapStateToProps, {
+    // Action 
+    changeLanguage,
+    changeTheme
+})(AppClassComponent)

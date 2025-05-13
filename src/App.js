@@ -11,9 +11,14 @@ import UserForm from './Pages/UserForm';
 import CompaniesList from './Pages/CompaniesList/CompanyList';
 import CompanyDetails from './Pages/CompaniesList/CompanyDetails';
 import Blogs from './Pages/Blog/Blog';
+import { useSelector } from 'react-redux';
 function App() {
+  // read lang from store
+  const myLang = useSelector((state)=> state.myLangRed.lang)
+  const myTheme = useSelector((state) => state.myThemeRed.theme) 
   return (
-    <div>
+    <div className={myTheme == "light" ? "bg-light text-dark" : "bg-dark text-light"}
+     dir={myLang == "EN" ? "ltr" : "rtl"}>
         <BrowserRouter> 
         <Navbar />
           <Switch> 
