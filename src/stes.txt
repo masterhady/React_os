@@ -84,3 +84,8 @@ State Managment:
                 1- Action
                 2- Reducer 
                 3- Store 
+
+        Redux-Thunk 
+
+
+        Context 

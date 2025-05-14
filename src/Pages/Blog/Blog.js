@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import MyTitle from "../../Components/MyTitle"
 import axios from "axios"
 import MyCard from "../../Components/MyCard"
+import { ThemeContext } from "../../Context/themeContext"
 function Blogs() {
+
+    const {myContextTheme, setMyContextTheme} = useContext(ThemeContext)
+
 
     const [blogs, setBlogs] = useState([])
     const [category, setCategory] = useState("food")
@@ -27,6 +31,9 @@ function Blogs() {
 
     return(
         <> 
+            <h3> {myContextTheme} </h3>
+            <button className="btn btn-info" onClick={() =>setMyContextTheme("Light Context") }> Change Context theme </button>
+
             <MyTitle head="My Blogs" />
             <select class="form-select" onChange={(e) => handelSelect(e)}>
                 <option selected>Open this select menu</option>

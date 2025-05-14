@@ -1,8 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { changeTheme } from "../Redux/Actions/ThemeAction"
+import { useContext } from "react"
+import { LanguageContext } from "../Context/langContext"
 
 function Navbar(){
+
+
+  const {myContextLang, setMyContextLang} = useContext(LanguageContext)
 
     // to get/ read data from store --> useSelector 
 
@@ -51,6 +56,9 @@ function Navbar(){
         </li>
         <li className="nav-item">
           <button onClick={() => changeMyTheme()} className="nav-link btn btn-warning">{myTheme}</button>
+        </li>
+        <li className="nav-item">
+          <button onClick={() => setMyContextLang(myContextLang == "FR" ? "ES" : "FR" )} className="nav-link btn btn-danger">{myContextLang}</button>
         </li>
         </ul>
     </div>
